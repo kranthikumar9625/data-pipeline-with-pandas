@@ -13,11 +13,15 @@ def read_table(db_details, table_name, limit=0):
         db_user = SOURCE_DB['DB_USER'],
         db_pass = SOURCE_DB['DB_PASS']
     )
+    print('read query building')
     if limit == 0:
         query = sqlalchemy.text(f'select * from {table_name}')
     else:
         query = sqlalchemy.text(f'select * from {table_name} limit {limit}')
     result =  connection.execute(query).fetchall()
+    print("data fetched")
     column_names = result[0].keys()
+
+    # connection.dispose()
 
     return result,column_names

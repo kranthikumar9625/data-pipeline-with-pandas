@@ -37,6 +37,6 @@ def get_connection(db_type,db_host,db_port,db_name,db_user,db_pass):
         connection = get_mysql_connection(db_host,db_port,db_name,db_user,db_pass)
         return connection
     if db_type == 'postgresql':
-        connection = get_mysql_connection(db_host, db_port, db_name, db_user, db_pass)
+        connection = get_postgresql_coinnection(db_host, db_port, db_name, db_user, db_pass)
         return connection
 
